@@ -1,0 +1,15 @@
+open System
+
+printf "Введите первый член геометрической прогресси: "
+let A = float(Console.ReadLine())
+printf "Введите кол-во членов геометрической прогресси: "
+let N = int(Console.ReadLine())
+printf "Введите знаменатель геометрической прогресси: "
+let q = float(Console.ReadLine())
+
+let arif x =
+    for i in 1..x do
+        printf "%i член прогресси: %f \n" (i) (A * q ** float (i-1))
+
+printf "Члены геометрической последовательности: \n"
+arif N
