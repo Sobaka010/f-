@@ -1,0 +1,12 @@
+open System
+printf "Введите число, которое будет возводиться в степень: "
+let A = float(Console.ReadLine())
+printf "Введите граничное значение степени: "
+let N = int(Console.ReadLine())
+
+let Step x =
+    for i in 1..x do
+        printf "%f " (A ** float(i))
+        
+printf "Степенные значения числа: "
+Step N
