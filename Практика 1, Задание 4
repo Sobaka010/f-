@@ -1,0 +1,15 @@
+open System
+
+printf "Введите первый член ариффметической прогресси: "
+let A = float(Console.ReadLine())
+printf "Введите кол-во членов ариффметической прогресси: "
+let N = int(Console.ReadLine())
+printf "Введите разность ареффметической прогресси: "
+let d = float(Console.ReadLine())
+
+let arif x =
+    for i in 1..x do
+        printf "%i член прогресси: %f \n" i (A + float(i-1) * d)
+
+printf "Члены ариффметической последовательности: \n"
+arif N
