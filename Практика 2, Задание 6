@@ -1,0 +1,17 @@
+open System
+
+printf "Введите СУММУ ариффметической прогресси: "
+let S = int(Console.ReadLine())
+printf "Введите КОЛ-ВО ЧЛЕНОВ ариффметической прогресси: "
+let N = int(Console.ReadLine())
+printf "Введите РАЗНОСТЬ ареффметической прогресси: "
+let d = int(Console.ReadLine())
+let a = (S / N) - ((N - 1) * d) / 2
+
+let arif x =
+    [
+         for i in 1..x do
+             yield (a + (i-1) * d)
+    ]
+            
+printf "Члены ариффметической прогресси: %A" (arif N)
