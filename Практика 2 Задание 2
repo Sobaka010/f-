@@ -1,0 +1,14 @@
+open System
+
+printf "Введите число: "
+let A = int(Console.ReadLine())
+
+let rec del x =
+    if x <= 1 then
+        1
+    elif A % x = 0 then 
+        x + (del (x-1))
+    else 
+        (del (x-1))
+            
+printf "Сумма делителей числа %i: %A " A (del A)
