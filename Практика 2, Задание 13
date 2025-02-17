@@ -1,0 +1,14 @@
+open System
+
+printf "Введите натуральное число x: "
+let x = int(Console.ReadLine())
+
+let rec Kol1 x =
+    if x < 1 then
+        0
+    elif x%10 = 1 then
+        1 + Kol1 (x/10)
+    else
+        Kol1 (x/10)
+
+printf "Кол-во цифр 1 в числе = %A\n\n" (Kol1 x)
