@@ -1,0 +1,18 @@
+open System
+
+printf "Введите координату x: "
+let x = float(Console.ReadLine())
+printf "Введите координату y: "
+let y = float(Console.ReadLine())
+
+let Chetvert x y =
+    if (float(x)>0) && (float(y)>0) then printf "Точка лежит в I четверти\n"
+    elif (float(x)<0) && (float(y)>0) then printf "Точка лежит в II четверти\n"
+    elif (float(x)>0) && (float(y)<0) then printf "Точка лежит в IV четверти\n"
+    elif (float(x)<0) && (float(y)<0) then printf "Точка лежит в III четверти\n"
+    elif (float(x)=0) && (float(y)<>0) then printf "Точка лежит на оси Ox\n"
+    elif (float(x)<>0) && (float(y)=0) then printf "Точка лежит на оси Oy\n"
+    else printf "Точка лежит в начале координат\n"
+
+printf "Полученна точка A, с координатами [%f; %f]\n" x y
+(Chetvert x y)
