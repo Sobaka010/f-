@@ -1,0 +1,18 @@
+open System
+
+printf "Введите натуральное число x: "
+let x = int(Console.ReadLine())
+printf "Введите натуральное число y: "
+let y = int(Console.ReadLine())
+let m = min x y
+
+let rec ObshDel i =
+    if i < 1 then 
+        1
+    elif (x % i = 0) && (y % i = 0) then 
+        i
+    else 
+        ObshDel (i - 1)
+
+
+printf "Наибольший общий делитель = %A\n\n" (ObshDel m)
