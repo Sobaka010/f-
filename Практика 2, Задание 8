@@ -1,0 +1,12 @@
+open System
+
+let rec fibonacci n a b =
+    if n = 0 then []
+    else a :: fibonacci (n - 1) b (a + b)
+
+// Ввод значения n
+printf "Введите n: "
+let n = int(Console.ReadLine()) |> int
+
+// Вывод последовательности
+printfn "Последовательность Фибоначчи до %i члена: %A" n (fibonacci n 1 1)
