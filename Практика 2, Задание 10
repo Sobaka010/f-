@@ -1,0 +1,12 @@
+open System
+
+printf "Введите натуральное число x: "
+let x = int(Console.ReadLine())
+
+let rec Sum x =
+    if x < 1 then
+        0
+    else
+        x%10 + Sum (x/10)
+
+printf "Сумма всех цифр = %A\n\n" (Sum x)
