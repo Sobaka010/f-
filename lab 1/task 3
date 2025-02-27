@@ -1,0 +1,81 @@
+open System
+
+let readList () =
+    printfn "Введите элементы списка через пробел: "
+    let input = Console.ReadLine()
+    
+    if input = null || input = "" then
+        []
+    else
+        let parts = input.Split(' ') // Разделяем строку на части
+        let numbers = List.map int (Array.toList parts) // Преобразуем строки в числа
+        numbers
+
+let dob list x =
+    list @ [x]
+
+let delit list x =
+    list |> List.filter ((<>) x)
+
+let poisk list x =
+    list |> List.tryFind ((=) x)
+
+let obedin list1 list2 =
+    list1 @ list2
+
+let poisk_po_number list index =
+    if index < 0 || index >= List.length list then
+        None
+    else
+        Some (List.item index list)
+
+
+
+
+printfn "Выберите операцию:"
+printfn "1 - Добавить элемент"
+printfn "2 - Удалить элемент"
+printfn "3 - Найти элемент"
+printfn "4 - Сцепить два списка"
+printfn "5 - Получить элемент по индексу"
+
+match Console.ReadLine() with
+| "1" ->
+    let list = readList ()
+    printf "Введите элемент для добавления: "
+    let x = int(Console.ReadLine())
+    printfn "Новый список: %A" (dob list x)
+    
+| "2" ->
+    let list = readList ()
+    printf "Введите элемент для удаления: "
+    let x = int(Console.ReadLine())
+    printfn "Новый список: %A" (delit list x)
+
+    
+| "3" ->
+    let list = readList ()
+    printf "Введите элемент для поиска: "
+    let x = int(Console.ReadLine())
+    match poisk list x with
+    | Some x -> printfn "Элемент %d найден." x
+    | None -> printfn "Элемент не найден."
+
+    
+| "4" ->
+    printfn "Введите первый список:"
+    let list1 = readList ()
+    printfn "Введите второй список:"
+    let list2 = readList ()
+    printfn "Объединённый список: %A" (obedin list1 list2)
+
+
+| "5" ->
+    let list = readList ()
+    printf "Введите индекс элемента: "
+    let index = Console.ReadLine() |> int
+    match poisk_po_number list index with
+    | Some x -> printfn "Элемент на позиции %d: %d" index x
+    | None -> printfn "Неверный индекс."
+
+| _ -> printfn "Некорректный ввод, попробуйте снова."
