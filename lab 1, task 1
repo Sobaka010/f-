@@ -1,0 +1,14 @@
+open System
+
+let creat_list () =
+    printfn "Введите элементы списка через пробел: "
+    let input = Console.ReadLine()
+    
+    if input = null || input = "" then
+        []
+    else
+        let parts = input.Split(' ') // Разделяем строку на части
+        List.ofArray parts // Преобразуем массив в список
+
+let list = creat_list ()
+printfn "Ваш список: %A" list
