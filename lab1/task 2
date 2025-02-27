@@ -1,0 +1,17 @@
+open System
+
+printf "Введите натуральное число (меньше чем 10^10): "
+let n = float(Console.ReadLine())
+
+let rec poisk x y =
+    if x < 1 then
+        y
+    elif x%10 > y then
+        (poisk (x/10) (x%10))
+    else
+        poisk (x/10) y
+
+if n<1 || n % 1. <> 0 then
+    printf "Вы ввели не натуральное число\n\n"
+else
+    printf "Максимальная цифра из числа %i: %A\n\n" (int(n)) (poisk (int(n)) 0)
