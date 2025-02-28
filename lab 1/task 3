@@ -7,8 +7,8 @@ let readList () =
     if input = null || input = "" then
         []
     else
-        let parts = input.Split(' ') // Разделяем строку на части
-        let numbers = List.map int (Array.toList parts) // Преобразуем строки в числа
+        let parts = input.Split(' ')
+        let numbers = List.map int (Array.toList parts) 
         numbers
 
 let dob list x =
