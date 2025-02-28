@@ -1,15 +1,11 @@
-open System
-
-let readList () =
-    printfn "Введите элементы списка через пробел: "
-    let input = Console.ReadLine()
-    
-    if input = null || input = "" then
-        []
-    else
-        let parts = input.Split(' ')
-        let numbers = List.map int (Array.toList parts) 
-        numbers
+let rec readNumbers acc =
+    printfn "Введите элементы списка через Enter, для завершения введите пустой элемент: "
+    match System.Console.ReadLine() with
+    | null | "" -> List.rev acc  
+    | input -> 
+        match System.Int32.TryParse(input) with
+        | (true, num) -> readNumbers (num :: acc)
+        | _ -> readNumbers acc  
 
 let dob list x =
     list @ [x]
@@ -41,20 +37,20 @@ printfn "5 - Получить элемент по индексу"
 
 match Console.ReadLine() with
 | "1" ->
-    let list = readList ()
+    let list = readNumbers []
     printf "Введите элемент для добавления: "
     let x = int(Console.ReadLine())
     printfn "Новый список: %A" (dob list x)
     
 | "2" ->
-    let list = readList ()
+    let list = readNumbers []
     printf "Введите элемент для удаления: "
     let x = int(Console.ReadLine())
     printfn "Новый список: %A" (delit list x)
 
     
 | "3" ->
-    let list = readList ()
+    let list = readNumbers []
     printf "Введите элемент для поиска: "
     let x = int(Console.ReadLine())
     match poisk list x with
@@ -64,14 +60,14 @@ match Console.ReadLine() with
     
 | "4" ->
     printfn "Введите первый список:"
-    let list1 = readList ()
+    let list1 = readNumbers[]
     printfn "Введите второй список:"
-    let list2 = readList ()
+    let list2 = readNumbers[]
     printfn "Объединённый список: %A" (obedin list1 list2)
 
 
 | "5" ->
-    let list = readList ()
+    let list = readNumbers[]
     printf "Введите индекс элемента: "
     let index = Console.ReadLine() |> int
     match poisk_po_number list index with
