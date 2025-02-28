@@ -1,14 +1,11 @@
 open System
+let rec Zapolnenie acc =
+    match string(Console.ReadLine()) with
+    | null | "" -> List.rev acc 
+    | word -> Zapolnenie (word :: acc) 
 
-let creat_list () =
-    printfn "Введите элементы списка через пробел: "
-    let input = Console.ReadLine()
-    
-    if input = null || input = "" then
-        []
-    else
-        let parts = input.Split(' ') 
-        List.ofArray parts
 
-let list = creat_list ()
-printfn "Ваш список: %A" list
+printfn "Введите элементы списка через Enter, для завершения введите пустой элемент: "
+let list = Zapolnenie []
+
+printfn "Список введенных слов: %A" list
