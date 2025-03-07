@@ -52,9 +52,12 @@ match Console.ReadLine() with
         let list = (generator_r (int(n)) (int(min)) (int(max)))
         printf "Случайный список: %A" list
         printf "\nВведите цифру: "
-        let y = int(Console.ReadLine())
-        let s = (sum list y)
-        printf "Сумма всех элементов, содержащих эту цифру: %A\n\n" s
+        let y = String(Console.ReadLine())
+        if (isNumber y) && (int(y) >= 0) && (int(y) <10) then
+            let s = (sum list (int(y)))
+            printf "Сумма всех элементов, содержащих эту цифру: %A\n\n" s
+        else
+            printf "Ошибка Ввода\n\n"
      else 
         printf "Ошибка Ввода\n\n"
 
